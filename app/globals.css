@@ -1,0 +1,395 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── ScrapeNova custom utilities ───────────────────────────── */
+@layer components {
+
+  /* ── Shared ── */
+  .hover-glow {
+    transition: all 0.25s ease;
+  }
+  .hover-glow:hover {
+    transform: translateY(-2px);
+  }
+
+  /* ── Light theme utilities ── */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(6, 182, 212, 0.18);
+  }
+  .neon-border {
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.10);
+    border: 1px solid rgba(6, 182, 212, 0.22);
+  }
+  .hover-glow:hover {
+    box-shadow: 0 10px 25px rgba(6, 182, 212, 0.12);
+  }
+  .gradient-bg {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  }
+  .sidebar-active-bar {
+    box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+  }
+  .panel-glow {
+    background-image: radial-gradient(
+      ellipse 80% 50% at 50% -20%,
+      rgba(6, 182, 212, 0.08) 0%,
+      transparent 70%
+    );
+  }
+
+  /* ── Dark theme overrides ── */
+  .dark .glass-card {
+    background: rgba(6, 182, 212, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(6, 182, 212, 0.15);
+  }
+  .dark .neon-border {
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.25);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+  }
+  .dark .hover-glow:hover {
+    box-shadow: 0 10px 25px rgba(6, 182, 212, 0.25);
+  }
+  .dark .sidebar-active-bar {
+    box-shadow: 0 0 8px rgba(6, 182, 212, 0.8);
+  }
+  .dark .panel-glow {
+    background-image: radial-gradient(
+      ellipse 80% 50% at 50% -20%,
+      rgba(6, 182, 212, 0.07) 0%,
+      transparent 70%
+    );
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply bg-cyan-600 hover:bg-cyan-700 text-white font-semibold;
+    @apply shadow-sm transition-all duration-150;
+  }
+  .dark .btn-primary {
+    @apply bg-cyan-500 hover:bg-cyan-400 text-zinc-950;
+    @apply shadow-[0_0_14px_rgba(6,182,212,0.4)];
+  }
+
+  .btn-secondary {
+    @apply bg-zinc-100 hover:bg-zinc-200 text-zinc-800 border border-zinc-200 transition-all duration-150;
+  }
+  .dark .btn-secondary {
+    @apply bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700;
+  }
+
+  .btn-ghost {
+    @apply hover:bg-zinc-100 text-zinc-600 hover:text-zinc-900 transition-all duration-150;
+  }
+  .dark .btn-ghost {
+    @apply hover:bg-white/5 text-zinc-400 hover:text-zinc-100;
+  }
+
+  .btn-danger {
+    @apply bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 transition-all duration-150;
+  }
+  .dark .btn-danger {
+    @apply bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30;
+  }
+
+  /* ── Cards ── */
+  .card {
+    @apply bg-white border border-zinc-200 rounded-xl shadow-sm;
+  }
+  .dark .card {
+    @apply bg-zinc-900 border border-zinc-800 rounded-xl shadow-none;
+  }
+
+  .card-hover {
+    @apply transition-all duration-150 hover:ring-1 hover:ring-cyan-400 hover:shadow-md;
+  }
+  .dark .card-hover {
+    @apply hover:ring-cyan-500/20 hover:shadow-none;
+  }
+
+  /* ── Inputs ── */
+  .input {
+    @apply bg-white border border-zinc-300 text-zinc-900 placeholder:text-zinc-400 rounded-md;
+    @apply focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-150;
+  }
+  .dark .input {
+    @apply bg-zinc-900 border border-zinc-800 text-zinc-100 placeholder:text-zinc-500;
+    @apply focus:ring-cyan-500 focus:border-cyan-500/50;
+  }
+
+  /* ── Badges ── */
+  .badge-default {
+    @apply bg-zinc-100 text-zinc-700 border border-zinc-200 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  .dark .badge-default {
+    @apply bg-zinc-800 text-zinc-300 border border-zinc-700;
+  }
+
+  .badge-active {
+    @apply bg-cyan-100 text-cyan-800 border border-cyan-200 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  .dark .badge-active {
+    @apply bg-cyan-500/10 text-cyan-400 border border-cyan-500/30;
+  }
+
+  .badge-success {
+    @apply bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  .dark .badge-success {
+    @apply bg-emerald-500/10 text-emerald-400 border border-emerald-500/30;
+  }
+
+  .badge-warning {
+    @apply bg-amber-50 text-amber-800 border border-amber-200 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  .dark .badge-warning {
+    @apply bg-amber-500/10 text-amber-400 border border-amber-500/30;
+  }
+
+  .badge-error {
+    @apply bg-red-50 text-red-800 border border-red-200 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  .dark .badge-error {
+    @apply bg-red-500/10 text-red-400 border border-red-500/30;
+  }
+
+  /* ── Nav links ── */
+  .nav-link {
+    @apply text-zinc-700 hover:bg-zinc-100 hover:text-zinc-900 rounded-md transition-all duration-150;
+  }
+  .dark .nav-link {
+    @apply text-zinc-400 hover:bg-white/5 hover:text-zinc-100;
+  }
+
+  .nav-link-active {
+    @apply bg-cyan-50 text-cyan-800 shadow-[inset_0_0_0_1px_rgba(6,182,212,0.3)] rounded-md;
+  }
+  .dark .nav-link-active {
+    @apply bg-cyan-500/10 text-cyan-400 shadow-[inset_0_0_0_1px_rgba(6,182,212,0.3)];
+  }
+
+  /* ── Section label (sidebar) ── */
+  .section-label {
+    @apply text-[10px] font-semibold uppercase tracking-widest text-zinc-500;
+  }
+  .dark .section-label {
+    @apply text-zinc-600;
+  }
+
+  /* ── Dividers ── */
+  .divider {
+    @apply border-zinc-200;
+  }
+  .dark .divider {
+    @apply border-zinc-800;
+  }
+
+  /* ── Icon colors ── */
+  .icon-default {
+    @apply text-zinc-500;
+  }
+  .dark .icon-default {
+    @apply text-zinc-500;
+  }
+
+  .icon-active {
+    @apply text-cyan-700;
+  }
+  .dark .icon-active {
+    @apply text-cyan-400;
+  }
+}
+
+/* ─── Raw CSS vars (legacy / non-Tailwind consumers) ────────── */
+:root {
+  --foreground-rgb:        24, 24, 27;
+  --background-start-rgb: 250, 250, 250;
+  --background-end-rgb:   255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb:        244, 244, 245;
+    --background-start-rgb: 9, 9, 11;
+    --background-end-rgb:   24, 24, 27;
+  }
+}
+
+/* ─── Tailwind typography utility ───────────────────────────── */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ─── shadcn/ui CSS variables ─────────────────────────────────
+
+   LIGHT palette
+   white          hsl(0 0% 100%)
+   zinc-50        hsl(240 4.8% 96%)     ← page background (neutral, not tinted)
+   zinc-100       hsl(240 4.8% 95%)     ← muted surface
+   zinc-200       hsl(240 5.9% 90%)     ← border / input
+   cyan-600       hsl(192  91% 36%)     ← primary (deep enough to read on white)
+   cyan-700       hsl(194  90% 29%)     ← hover / accent
+   zinc-500       hsl(240 3.8% 46%)     ← muted text
+   zinc-900       hsl(240 5.3% 10%)     ← foreground
+
+   DARK palette (unchanged)
+   zinc-950 / zinc-900 / zinc-800 / cyan-500 / cyan-400
+   ─────────────────────────────────────────────────────── */
+
+@layer base {
+
+  /* ════════════════════════════════════════════════════════
+     LIGHT MODE
+     ════════════════════════════════════════════════════════ */
+  :root {
+    /* Surfaces — clean neutral, no cyan tint */
+    --background:                   240  4.8% 97%;  /* zinc-50-ish    */
+    --foreground:                   240  5.3% 10%;  /* zinc-900       */
+
+    --card:                         0 0% 100%;      /* pure white     */
+    --card-foreground:              240  5.3% 10%;
+
+    --popover:                      0 0% 100%;
+    --popover-foreground:           240  5.3% 10%;
+
+    /* Primary — deeper cyan-600 so it's readable on white */
+    --primary:                      192  91% 36%;   /* cyan-600       */
+    --primary-foreground:           0 0% 100%;
+
+    /* Secondary — soft neutral surface */
+    --secondary:                    240  4.8% 94%;  /* zinc-100       */
+    --secondary-foreground:         240  5.3% 10%;
+
+    /* Muted */
+    --muted:                        240  4.8% 95%;
+    --muted-foreground:             240  3.8% 40%;  /* zinc-600 — better contrast */
+
+    /* Accent — cyan-700 for max contrast on white */
+    --accent:                       194  90% 29%;   /* cyan-700       */
+    --accent-foreground:            0 0% 100%;
+
+    /* Destructive */
+    --destructive:                  0 84.2% 60.2%;
+    --destructive-foreground:       0 0% 98%;
+
+    /* Borders & inputs — neutral zinc, not cyan */
+    --border:                       240  5.9% 88%;  /* zinc-200       */
+    --input:                        240  5.9% 88%;
+    --ring:                         192  91% 36%;   /* cyan-600       */
+
+    --radius:                       0.65rem;
+
+    /* Charts */
+    --chart-1:                      192  91% 36%;
+    --chart-2:                      189  94% 43%;
+    --chart-3:                      186  94% 60%;
+    --chart-4:                      199  89% 48%;
+    --chart-5:                      200  98% 39%;
+
+    /* Sidebar — always dark */
+    --sidebar-background:           240   5.9%  6%;
+    --sidebar-foreground:           240   4.8% 96%;
+    --sidebar-primary:              189  94% 43%;
+    --sidebar-primary-foreground:   0 0% 100%;
+    --sidebar-accent:               187  85% 53%;
+    --sidebar-accent-foreground:    0 0% 100%;
+    --sidebar-border:               240   3.7% 16%;
+    --sidebar-ring:                 189  94% 43%;
+  }
+
+  /* ════════════════════════════════════════════════════════
+     DARK MODE (unchanged — already looks great)
+     ════════════════════════════════════════════════════════ */
+  .dark {
+    --background:                   240   5.9%  6%;
+    --foreground:                   240   4.8% 96%;
+
+    --card:                         240   5.3% 10%;
+    --card-foreground:              240   4.8% 96%;
+
+    --popover:                      240   5.9%  6%;
+    --popover-foreground:           240   4.8% 96%;
+
+    --primary:                      189  94% 43%;
+    --primary-foreground:           240   5.9%  6%;
+
+    --secondary:                    240   3.7% 16%;
+    --secondary-foreground:         240   4.8% 96%;
+
+    --muted:                        240   3.7% 16%;
+    --muted-foreground:             240   5.0% 65%;
+
+    --accent:                       187  85% 53%;
+    --accent-foreground:            240   5.9%  6%;
+
+    --destructive:                  0 62.8% 30.6%;
+    --destructive-foreground:       0 85.7% 97.3%;
+
+    --border:                       240   3.7% 16%;
+    --input:                        240   3.7% 16%;
+    --ring:                         189  94% 43%;
+
+    --chart-1:                      189  94% 43%;
+    --chart-2:                      187  85% 53%;
+    --chart-3:                      187  70% 65%;
+    --chart-4:                      199  89% 48%;
+    --chart-5:                      200  98% 39%;
+
+    --sidebar-background:           240   5.9%  6%;
+    --sidebar-foreground:           240   4.8% 96%;
+    --sidebar-primary:              189  94% 43%;
+    --sidebar-primary-foreground:   240   5.9%  6%;
+    --sidebar-accent:               187  85% 53%;
+    --sidebar-accent-foreground:    240   5.9%  6%;
+    --sidebar-border:               240   3.7% 16%;
+    --sidebar-ring:                 189  94% 43%;
+  }
+}
+
+/* ─── Global base resets ─────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ─── React Flow overrides ───────────────────────────────────── */
+.react-flow__attribution {
+  background: transparent !important;
+}
+
+.react-flow__controls-button {
+  background-color: white !important;
+  border-color: rgba(6, 182, 212, 0.25) !important;
+  color: hsl(192 91% 36%) !important;
+}
+.react-flow__controls-button:hover {
+  background-color: hsl(240 4.8% 95%) !important;
+}
+
+.dark .react-flow__controls-button {
+  background-color: hsl(240 5.3% 10%) !important;
+  border-color: rgba(6, 182, 212, 0.3) !important;
+  color: hsl(187 85% 53%) !important;
+}
+.dark .react-flow__controls-button:hover {
+  background-color: hsl(240 3.7% 16%) !important;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar               { width: 6px; height: 6px; }
+::-webkit-scrollbar-track         { background: transparent; }
+
+::-webkit-scrollbar-thumb         { background: hsl(240 5.9% 80%); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover   { background: hsl(192 91% 36% / 0.5); }
+
+.dark ::-webkit-scrollbar-thumb       { background: hsl(240 3.7% 26%); border-radius: 3px; }
+.dark ::-webkit-scrollbar-thumb:hover { background: hsl(189 94% 43% / 0.6); }

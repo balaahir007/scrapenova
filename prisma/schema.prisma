@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Workflow {
+  id          String  @id @default(cuid())
+  userId      String
+  name        String
+  description String?
+
+  definition String
+  status     String
+
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  excecution WorkflowExecution[]
+
+
+  @@unique([name, userId])
+}
+
+model WorkflowExecution {
+  id         String   @id @default(cuid())
+  workflowId String
+  userId     String
+  trigger    String
+  status     String
+  logs       String   @default("[]")
+  error      String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  startedAt DateTime?
+  completedAt DateTime? 
+
+  workflow Workflow @relation(fields: [workflowId], references: [id], onDelete: Cascade)
+  phases   ExecutionPhase[]
+
+  @@index([workflowId])
+  @@index([userId])
+}
+
+model ExecutionPhase {
+  id              String   @id @default(cuid())
+  executionId     String
+  number          Int
+  status          String
+  nodeId          String
+  nodeData        String?
+  logs            String   @default("[]")
+  results         String?  @default("{}")
+  error           String?
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  startedAt      DateTime?
+  completedAt    DateTime?
+
+  execution WorkflowExecution @relation(fields: [executionId], references: [id], onDelete: Cascade)
+
+  @@index([executionId])
+  @@unique([executionId, number])
+}
