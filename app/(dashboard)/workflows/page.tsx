@@ -1,4 +1,4 @@
-// [ScrapeNexa theme applied] — page.tsx
+// [ScrapeNova theme applied] — page.tsx
 import { GetWorkFLowsForUser } from "@/actions/workflows/getWorkflowsUser";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Skeleton } from "@/components/ui/skeleton";

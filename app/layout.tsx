@@ -8,12 +8,12 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ScrapeNexa",
+  title: "ScrapeNova",
   description: "Automate your web scraping workflows",
   icons: {
     icon: "/Headerlogo.png",
     shortcut: "/Headerlogo.png",
-    apple: "   /Headerlogo.png",
+    apple: "/Headerlogo.png",
   },
 };
 

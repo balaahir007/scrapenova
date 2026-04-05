@@ -1,4 +1,4 @@
-// [ScrapeNexa theme applied] — ThemeModeToggle.tsx
+// [ScrapeNova theme applied] — ThemeModeToggle.tsx
 "use client"
 
 import { Moon, Sun, Monitor, Palette } from "lucide-react"

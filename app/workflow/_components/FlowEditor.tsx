@@ -25,7 +25,7 @@ import { toast } from "sonner";
 import { TaskRegistry } from "@/lib/workflow/task/registery";
 
 const nodeTypes = {
-  ScrapeNexaNode: NodeComponent,
+  ScrapeNovaNode: NodeComponent,
   
 };
 
@@ -168,7 +168,7 @@ function FlowEditor({ workflow }: { workflow: Workflow }) {
     } 
     const detectedCycle = hasCycle(targetNode);
     return !detectedCycle;
-  }, [nodes]);
+  }, [nodes, edges]);
   return (
     <main className="h-full w-full ">
       <ReactFlow

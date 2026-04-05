@@ -1,4 +1,4 @@
-// [ScrapeNexa theme applied] — CreateWorkflowDialog.tsx
+// [ScrapeNova theme applied] — CreateWorkflowDialog.tsx
 "use client";
 import CustomDialogHeader from "@/components/CustomDialogHeader";
 import { Button } from "@/components/ui/button";
@@ -115,7 +115,7 @@ const onSubmit = (values: createWorkflowSchemaType) => {
                       Provide a brief description of what your workflow does.
                       <br />
                       This is optional but can help you remember the
-                      workflow's purpose
+                      workflow&apos;s purpose
                     </FormDescription>
                     <FormMessage />
                   </FormItem>

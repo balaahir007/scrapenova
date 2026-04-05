@@ -160,7 +160,7 @@ export default function DashboardPage() {
             </p>
             <h1
               className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100"
-              style={{ fontFamily: "'Syne', sans-serif" }}
+              style={{ fontFamily: "&apos;Syne&apos;, sans-serif" }}
             >
               Good morning, {firstName} 👋
             </h1>

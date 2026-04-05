@@ -32,7 +32,7 @@ const useExcecutionPlan = ()=>{
         }
         clearErrors();
         return excecutionPlan;
-    },[toObject,handleError]) 
+    },[toObject,handleError,clearErrors]) 
     return generateExcecutionPlan;
 }
 export default useExcecutionPlan

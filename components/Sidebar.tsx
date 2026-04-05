@@ -69,7 +69,7 @@ function ThemeToggle() {
 }
 
 /* ── Brand mark ──────────────────────────────────────────────── */
-function ScrapeNexaLogo({ collapsed = false }: { collapsed?: boolean }) {
+function ScrapeNovaLogo({ collapsed = false }: { collapsed?: boolean }) {
   return (
     <div className="flex items-center gap-2.5 select-none">
       <span className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-cyan-500 shadow-[0_0_14px_rgba(6,182,212,0.55)]">
@@ -176,7 +176,7 @@ const DesktopSidebar = () => {
     >
       {/* Logo */}
       <div className="flex h-14 items-center border-b border-cyan-100 dark:border-white/[0.06] px-4">
-        <ScrapeNexaLogo />
+        <ScrapeNovaLogo />
       </div>
 
       {/* Nav */}
@@ -208,7 +208,7 @@ export function MobileSideBar() {
   return (
     <div className="block border-b border-cyan-100 dark:border-white/[0.07] bg-white dark:bg-zinc-950 md:hidden">
       <nav className="flex h-14 items-center justify-between px-4">
-        <ScrapeNexaLogo />
+        <ScrapeNovaLogo />
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
@@ -233,7 +233,7 @@ export function MobileSideBar() {
               }}
             >
               <div className="flex h-14 items-center border-b border-cyan-100 dark:border-white/[0.06] px-4">
-                <ScrapeNexaLogo />
+                <ScrapeNovaLogo />
               </div>
 
               <nav className="flex flex-col flex-1 px-2 py-3">

@@ -1,4 +1,4 @@
-// [ScrapeNexa theme applied] — layout.tsx
+// [ScrapeNova theme applied] — layout.tsx
 "use client";
 
 import BreadcrumbHeader from "@/components/BreadcrumbHeader";

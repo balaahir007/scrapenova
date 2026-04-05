@@ -1,4 +1,4 @@
-// [ScrapeNexa theme applied] — components/Logo.tsx
+// [ScrapeNova theme applied] — components/Logo.tsx
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Zap } from "lucide-react";
@@ -38,7 +38,7 @@ const Logo = ({
             Scrape
           </span>
           <span className="text-zinc-900 dark:text-zinc-100">
-            Nexa
+            Nova
           </span>
         </div>
       )}
