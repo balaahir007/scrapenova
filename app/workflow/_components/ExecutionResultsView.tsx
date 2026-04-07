@@ -121,7 +121,7 @@ export function ExecutionResultsView({ execution }: { execution: ExecutionDetail
   };
 
   // Safely convert dates
-  const getDate = (date: string | Date | undefined) => {
+  const getDate = (date: string | Date | null | undefined) => {
     if (!date) return null;
     return typeof date === 'string' ? new Date(date) : date;
   };
