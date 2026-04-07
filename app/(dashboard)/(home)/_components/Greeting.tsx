@@ -18,7 +18,7 @@ export function Greeting() {
         Good morning, {firstName} 👋
       </h1>
       <p className="mt-1.5 text-sm text-zinc-500 dark:text-zinc-400">
-        Here's what's happening with your scraping workflows.
+        Here&apos;s what&apos;s happening with your scraping workflows.
       </p>
     </div>
   );
