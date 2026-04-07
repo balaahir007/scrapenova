@@ -31,7 +31,7 @@ export async function scrapeUrlWithFirecrawl(url: string) {
   const html = result.html || result.markdown || '';
   const markdown = result.markdown || '';
   const metadata = result.metadata || {};
-  const title = result.title || metadata.title || extractTitleFromHtml(html);
+  const title = metadata.title || extractTitleFromHtml(html);
 
   return {
     html,
