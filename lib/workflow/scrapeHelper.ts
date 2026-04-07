@@ -14,8 +14,8 @@ export interface ScraperResult {
 }
 
 export async function getFirecrawlClient() {
-  const module = await import('@mendable/firecrawl-js');
-  const Firecrawl = module.default || module;
+  const firecrawlModule = await import('@mendable/firecrawl-js');
+  const Firecrawl = firecrawlModule.default || firecrawlModule;
   const apiKey = process.env.FIRECRAWL_API_KEY;
 
   if (!apiKey) {
