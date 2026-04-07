@@ -31,8 +31,21 @@ export async function GetExecutionResults(executionId: string) {
         throw new Error("Execution not found");
     }
 
+    console.log("[GET_RESULTS] Raw execution from DB:", {
+        id: execution.id,
+        status: execution.status,
+        phasesCount: execution.phases.length,
+        phases: execution.phases.map(p => ({
+            id: p.id,
+            number: p.number,
+            nodeId: p.nodeId,
+            resultsRaw: p.results,
+            resultsParsed: p.results ? Object.keys(JSON.parse(p.results)).length : 0
+        }))
+    });
+
     // Parse the stored JSON strings and convert dates
-    return {
+    const result = {
         ...execution,
         createdAt: execution.createdAt.toISOString(),
         updatedAt: execution.updatedAt.toISOString(),
@@ -49,6 +62,13 @@ export async function GetExecutionResults(executionId: string) {
             results: JSON.parse(phase.results || "{}")
         }))
     };
+
+    console.log("[GET_RESULTS] Parsed results:", {
+        phasesCount: result.phases.length,
+        totalResults: result.phases.reduce((sum, p) => sum + Object.keys(p.results).length, 0)
+    });
+
+    return result;
 }
 
 export async function GetWorkflowExecutions(workflowId: string) {

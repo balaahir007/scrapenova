@@ -67,17 +67,40 @@ export async function RunWorkflow(from : {
     try {
         // Execute the workflow plan and get results
         const executionResults = await executeWorkflowPlan(excutionPlan, nodes);
+        
+        console.log("[RUN_WORKFLOW] Execution complete. Results:", {
+            phasesCount: executionResults.phases.length,
+            phases: executionResults.phases.map(p => ({
+                number: p.number,
+                nodeResultsCount: Object.keys(p.results).length,
+                nodeIds: Object.keys(p.results)
+            }))
+        });
 
         // Store execution phase results in database
         for (const phaseResult of executionResults.phases) {
             // Get all nodes for this phase - find the phase object that matches
             const phaseNode = excutionPlan.find(p => p.phase === phaseResult.number);
-            if (!phaseNode) continue;
+            if (!phaseNode) {
+                console.log(`[RUN_WORKFLOW] Warning: No phase node found for phase ${phaseResult.number}`);
+                continue;
+            }
+
+            console.log(`[RUN_WORKFLOW] Processing Phase ${phaseResult.number}, hasNodes=${phaseNode.nodes.length}`);
 
             // Store results for each node in the phase
             for (const node of phaseNode.nodes) {
                 const nodeResult = phaseResult.results[node.id];
-                if (!nodeResult) continue;
+                if (!nodeResult) {
+                    console.log(`[RUN_WORKFLOW] Warning: No result for node ${node.id}`);
+                    continue;
+                }
+
+                console.log(`[RUN_WORKFLOW] Saving node ${node.id}:`, {
+                    success: nodeResult.success,
+                    outputKeys: Object.keys(nodeResult.outputs),
+                    outputsJSON: JSON.stringify(nodeResult.outputs).substring(0, 200)
+                });
 
                 await prisma.executionPhase.create({
                     data: {
@@ -93,6 +116,8 @@ export async function RunWorkflow(from : {
                         completedAt: new Date()
                     }
                 });
+                
+                console.log(`[RUN_WORKFLOW] ✓ Saved node ${node.id}`);
             }
         }
 

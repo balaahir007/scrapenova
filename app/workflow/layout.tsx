@@ -6,7 +6,9 @@ import React from "react";
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex flex-col w-full h-screen">
-      {children}
+      <div className="flex-1 overflow-hidden">
+        {children}
+      </div>
       <Separator />
       <footer className="flex border-t-2 border-separate items-center justify-between p-2 ">
         <Logo iconSize={16} fontSize="text-xl" />

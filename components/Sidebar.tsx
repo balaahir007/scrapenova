@@ -17,6 +17,7 @@ import { usePathname } from "next/navigation";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
+import Logo from "./Logo";
 
 const routes = [
   { href: "/",            label: "Home",        icon: HomeIcon       },
@@ -69,24 +70,24 @@ function ThemeToggle() {
 }
 
 /* ── Brand mark ──────────────────────────────────────────────── */
-function ScrapeNovaLogo({ collapsed = false }: { collapsed?: boolean }) {
-  return (
-    <div className="flex items-center gap-2.5 select-none">
-      <span className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-cyan-500 shadow-[0_0_14px_rgba(6,182,212,0.55)]">
-        <ZapIcon size={16} className="text-zinc-950" strokeWidth={2.5} />
-        <span className="absolute -right-[3px] -top-[3px] h-2 w-2 rounded-full border-2 border-zinc-900 bg-cyan-400" />
-      </span>
-      {!collapsed && (
-        <span
-          className="font-bold tracking-tight dark:text-white text-zinc-900"
-          style={{ fontFamily: "'Syne', 'Space Grotesk', sans-serif", fontSize: "1.15rem" }}
-        >
-          Scrape<span className="text-cyan-500 dark:text-cyan-400">Nexa</span>
-        </span>
-      )}
-    </div>
-  );
-}
+// function ScrapeNovaLogo({ collapsed = false }: { collapsed?: boolean }) {
+//   return (
+//     <div className="flex items-center gap-2.5 select-none">
+//       <span className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-cyan-500 shadow-[0_0_14px_rgba(6,182,212,0.55)]">
+//         <ZapIcon size={16} className="text-zinc-950" strokeWidth={2.5} />
+//         <span className="absolute -right-[3px] -top-[3px] h-2 w-2 rounded-full border-2 border-zinc-900 bg-cyan-400" />
+//       </span>
+//       {!collapsed && (
+//         <span
+//           className="font-bold tracking-tight dark:text-white text-zinc-900"
+//           style={{ fontFamily: "'Syne', 'Space Grotesk', sans-serif", fontSize: "1.15rem" }}
+//         >
+//           Scrape<span className="text-cyan-500 dark:text-cyan-400">Nexa</span>
+//         </span>
+//       )}
+//     </div>
+//   );
+// }
 
 /* ── Nav link ─────────────────────────────────────────────────── */
 function NavLink({
@@ -176,7 +177,7 @@ const DesktopSidebar = () => {
     >
       {/* Logo */}
       <div className="flex h-14 items-center border-b border-cyan-100 dark:border-white/[0.06] px-4">
-        <ScrapeNovaLogo />
+        <Logo />
       </div>
 
       {/* Nav */}
@@ -208,7 +209,7 @@ export function MobileSideBar() {
   return (
     <div className="block border-b border-cyan-100 dark:border-white/[0.07] bg-white dark:bg-zinc-950 md:hidden">
       <nav className="flex h-14 items-center justify-between px-4">
-        <ScrapeNovaLogo />
+        <Logo />
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
@@ -233,7 +234,7 @@ export function MobileSideBar() {
               }}
             >
               <div className="flex h-14 items-center border-b border-cyan-100 dark:border-white/[0.06] px-4">
-                <ScrapeNovaLogo />
+                <Logo />
               </div>
 
               <nav className="flex flex-col flex-1 px-2 py-3">

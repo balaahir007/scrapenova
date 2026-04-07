@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import {
   Plus,
@@ -14,14 +12,14 @@ import {
   AlertCircle,
   InboxIcon,
 } from "lucide-react";
-import { useRouter } from "next/navigation";
 import WorkflowCard from "@/app/(dashboard)/workflows/_components/WorkflowCard";
-import { useUser } from "@clerk/nextjs";
 import { Suspense } from "react";
 import { cn } from "@/lib/utils";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { GetWorkFLowsForUser } from "@/actions/workflows/getWorkflowsUser";
 import CreateWorkflowDialog from "../workflows/_components/CreateWorkflowDialog";
+import { Greeting } from "./_components/Greeting";
+import { ViewAllButton } from "./_components/ViewAllButton";
 
 /* ── stat pill ───────────────────────────────────────────────── */
 function StatPill({
@@ -141,10 +139,6 @@ async function UserWorkflows() {
 
 /* ── page ────────────────────────────────────────────────────── */
 export default function DashboardPage() {
-  const router = useRouter();
-  const { user } = useUser();
-  const firstName = user?.firstName ?? "there";
-
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
       {/* grid pattern */}
@@ -154,20 +148,7 @@ export default function DashboardPage() {
 
         {/* greeting */}
         <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="mb-1 text-[11px] font-semibold uppercase tracking-widest text-cyan-600 dark:text-cyan-500">
-              Dashboard
-            </p>
-            <h1
-              className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100"
-              style={{ fontFamily: "&apos;Syne&apos;, sans-serif" }}
-            >
-              Good morning, {firstName} 👋
-            </h1>
-            <p className="mt-1.5 text-sm text-zinc-500 dark:text-zinc-400">
-              Here's what's happening with your scraping workflows.
-            </p>
-          </div>
+          <Greeting />
           <CreateWorkflowDialog />
         </div>
 
@@ -196,14 +177,7 @@ export default function DashboardPage() {
                 All your scraping projects
               </p>
             </div>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => router.push("/workflows")}
-              className="gap-1.5 text-xs text-zinc-500 dark:text-zinc-400 hover:text-cyan-600 dark:hover:text-cyan-400"
-            >
-              View all <ArrowRight size={12} />
-            </Button>
+            <ViewAllButton />
           </div>
 
           <div className="p-6">
