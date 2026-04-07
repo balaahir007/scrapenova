@@ -28,9 +28,9 @@ export async function getFirecrawlClient() {
 export async function scrapeUrlWithFirecrawl(url: string) {
   const app = await getFirecrawlClient();
   const result = await app.scrape(url, { formats: ['html', 'markdown'] });
-  const html = result.html || result.markdown || result?.documents?.[0]?.html || '';
-  const markdown = result.markdown || result?.documents?.[0]?.markdown || '';
-  const metadata = result.metadata || result?.documents?.[0]?.metadata || {};
+  const html = result.html || result.markdown || '';
+  const markdown = result.markdown || '';
+  const metadata = result.metadata || {};
   const title = result.title || metadata.title || extractTitleFromHtml(html);
 
   return {
