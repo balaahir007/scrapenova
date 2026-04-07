@@ -16,7 +16,7 @@ interface ExecutionPhase {
   logs: string[];
   results: Record<string, any>;
   error: string | null;
-  completedAt?: string | Date;
+  completedAt: string | null;
 }
 
 interface ExecutionDetails {
@@ -24,8 +24,10 @@ interface ExecutionDetails {
   status: string;
   logs: string[];
   phases: ExecutionPhase[];
-  createdAt: string | Date;
-  completedAt?: string | Date;
+  createdAt: string;
+  updatedAt: string;
+  startedAt: string | null;
+  completedAt: string | null;
 }
 
 // Component to render output values with proper formatting
