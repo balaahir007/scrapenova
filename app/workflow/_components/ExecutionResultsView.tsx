@@ -15,7 +15,7 @@ interface ExecutionPhase {
   nodeId: string;
   logs: string[];
   results: Record<string, any>;
-  error?: string;
+  error: string | null;
   completedAt?: string | Date;
 }
 
